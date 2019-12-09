@@ -13,9 +13,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     var allCountriesInfo = [Country] () {
         didSet {
             tableView.reloadData()
+        }
+    }
+    
+    var searchQuary = "" {
+        didSet {
+            allCountriesInfo = Country.getCountry().filter {$0.name.lowercased().contains(searchQuary.lowercased())}
         }
     }
     
@@ -24,12 +34,11 @@ class ViewController: UIViewController {
         loadData()
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
     }
     func loadData() {
-        let filename = "countries"
-        let ext  = "json"
-        let data = Bundle.readRawJSONData(filename: filename, ext: ext)
-        allCountriesInfo = Country.getCountry(from: data)
+        
+        allCountriesInfo = Country.getCountry()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,3 +78,16 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            loadData()
+            return
+        }
+        searchQuary = searchText
+    }
+}

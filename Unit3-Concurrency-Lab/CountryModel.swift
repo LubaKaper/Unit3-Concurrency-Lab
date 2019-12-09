@@ -16,7 +16,7 @@ struct Country: Decodable {
 }
 
 extension Country {
-    static func getCountry(from data: Data) -> [Country] {
+    static func getCountry() -> [Country] {
         
         var countryInfos = [Country]()
         guard let fileURL = Bundle.main.url(forResource: "countries", withExtension: "json") else {

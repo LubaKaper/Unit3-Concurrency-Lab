@@ -75,6 +75,7 @@
                                             <outlet property="cellImage" destination="cye-EN-L6Z" id="1o2-Aw-kZb"/>
                                             <outlet property="nameLabel" destination="Enl-f9-2cQ" id="avC-zB-ji9"/>
                                             <outlet property="populationLabel" destination="WDO-wZ-a5j" id="wFT-4Y-2v3"/>
+                                            <segue destination="nIk-6V-h0q" kind="show" id="t6N-Pg-cBY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -100,6 +101,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="117.85714285714285"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="XxR-Vs-ZQo">
+            <objects>
+                <viewController id="nIk-6V-h0q" customClass="DetailViewController" customModule="Unit3_Concurrency_Lab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dvp-h3-g36">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7tL-Q3-ySb">
+                                <rect key="frame" x="0.0" y="89" width="414" height="260.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eg-6x-uGk">
+                                <rect key="frame" x="20" y="395" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country capital" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDa-5b-gqk">
+                                <rect key="frame" x="20" y="445.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country population" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3f-VN-zQJ">
+                                <rect key="frame" x="20" y="811.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="viM-J9-1sz" firstAttribute="trailing" secondItem="JDa-5b-gqk" secondAttribute="trailing" constant="20" id="1Wq-3m-hX5"/>
+                            <constraint firstItem="viM-J9-1sz" firstAttribute="trailing" secondItem="E3f-VN-zQJ" secondAttribute="trailing" constant="20" id="82m-Hu-jbk"/>
+                            <constraint firstItem="5Eg-6x-uGk" firstAttribute="top" secondItem="7tL-Q3-ySb" secondAttribute="bottom" constant="44" id="9D5-bF-QDx"/>
+                            <constraint firstItem="E3f-VN-zQJ" firstAttribute="leading" secondItem="viM-J9-1sz" secondAttribute="leading" constant="20" id="ALi-4b-9BR"/>
+                            <constraint firstItem="5Eg-6x-uGk" firstAttribute="leading" secondItem="viM-J9-1sz" secondAttribute="leading" constant="20" id="C8V-S7-q4C"/>
+                            <constraint firstItem="JDa-5b-gqk" firstAttribute="top" secondItem="5Eg-6x-uGk" secondAttribute="bottom" constant="30" id="H1s-sf-w3d"/>
+                            <constraint firstItem="7tL-Q3-ySb" firstAttribute="leading" secondItem="viM-J9-1sz" secondAttribute="leading" id="Jpc-Ul-2Wo"/>
+                            <constraint firstItem="viM-J9-1sz" firstAttribute="trailing" secondItem="5Eg-6x-uGk" secondAttribute="trailing" constant="20" id="NU5-Lh-X3L"/>
+                            <constraint firstItem="JDa-5b-gqk" firstAttribute="leading" secondItem="viM-J9-1sz" secondAttribute="leading" constant="20" id="Oei-Ug-JXY"/>
+                            <constraint firstItem="7tL-Q3-ySb" firstAttribute="trailing" secondItem="viM-J9-1sz" secondAttribute="trailing" id="c6G-IP-F87"/>
+                            <constraint firstItem="viM-J9-1sz" firstAttribute="bottom" secondItem="E3f-VN-zQJ" secondAttribute="bottom" constant="30" id="jFR-KV-87u"/>
+                            <constraint firstItem="7tL-Q3-ySb" firstAttribute="height" secondItem="dvp-h3-g36" secondAttribute="height" multiplier="0.293527" id="pjP-8Q-tdh"/>
+                            <constraint firstItem="7tL-Q3-ySb" firstAttribute="top" secondItem="viM-J9-1sz" secondAttribute="top" id="x9U-zH-p6y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="viM-J9-1sz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cRY-dL-11D"/>
+                    <connections>
+                        <outlet property="capitalLabel" destination="JDa-5b-gqk" id="3dZ-YW-crn"/>
+                        <outlet property="flagImage" destination="7tL-Q3-ySb" id="ECv-pd-oca"/>
+                        <outlet property="nameLabel" destination="5Eg-6x-uGk" id="Q9A-Nb-IdE"/>
+                        <outlet property="populationLabel" destination="E3f-VN-zQJ" id="7v5-KD-vDo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bhg-Iz-zZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2105.7971014492755" y="117.85714285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wU1-QQ-NVC">

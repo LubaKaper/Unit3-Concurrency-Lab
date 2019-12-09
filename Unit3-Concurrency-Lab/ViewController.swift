@@ -31,6 +31,15 @@ class ViewController: UIViewController {
         let data = Bundle.readRawJSONData(filename: filename, ext: ext)
         allCountriesInfo = Country.getCountry(from: data)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("error")
+        }
+        let countryInfo = allCountriesInfo[indexPath.row]
+        detailVC.countryAllInfo = countryInfo
+        
+    }
 
 
 }
